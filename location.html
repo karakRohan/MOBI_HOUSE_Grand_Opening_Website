@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <meta name="theme-color" content="#090909">
 
     <meta name="description"
-        content="Visit MOBI HOUSE, your destination for smartphones, gadgets and electronics. Join our Grand Opening on 1 November 2026.">
+        content="Visit MOBI HOUSE at Medinipur Station, beside Reshma Lodge. Join our Grand Opening on 1 November 2026.">
 
     <title>Location & Contact | MOBI HOUSE</title>
 
@@ -29,6 +30,7 @@
             border-radius: 18px;
             background: linear-gradient(145deg, #171612, #0c0c0c);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+            min-width: 0;
         }
 
         .location-card h2 {
@@ -62,11 +64,11 @@
         }
 
         .detail-content {
-            min-width: 0;
             flex: 1;
+            min-width: 0;
         }
 
-        .detail-content small {
+        .detail-content > small {
             display: block;
             margin-bottom: 9px;
             color: #f8bd28;
@@ -75,7 +77,7 @@
             letter-spacing: 1.5px;
         }
 
-        .detail-content strong {
+        .detail-content > strong {
             display: block;
             color: #f7f5ef;
             font-size: 16px;
@@ -83,7 +85,7 @@
             overflow-wrap: anywhere;
         }
 
-        .detail-content p {
+        .detail-content > p {
             color: #bdb7aa;
             font-size: 13px;
             line-height: 1.7;
@@ -95,28 +97,25 @@
         .contact-numbers {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             gap: 12px;
         }
 
         .contact-numbers a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             color: #f8bd28;
             font-size: 17px;
             font-weight: 800;
             text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
             overflow-wrap: anywhere;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .contact-numbers a:hover {
             color: #ffffff;
-            transform: translateX(5px);
-        }
-
-        .contact-numbers a span {
-            font-size: 19px;
+            transform: translateX(4px);
         }
 
         /* GOOGLE MAPS BUTTON */
@@ -127,8 +126,9 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
+            box-sizing: border-box;
             margin-top: 25px;
-            padding: 17px 20px;
+            padding: 16px 18px;
             border-radius: 9px;
             background: linear-gradient(135deg, #ffdf79, #f5ae12);
             color: #171107;
@@ -144,15 +144,18 @@
             box-shadow: 0 8px 25px rgba(248, 189, 40, 0.2);
         }
 
-        /* STORE IMAGE AND LOGO */
+        /* STORE IMAGE */
 
         .location-image {
             position: relative;
-            min-height: 100%;
+            width: 100%;
+            min-width: 0;
+            min-height: 350px;
             overflow: hidden;
-            border-radius: 18px;
+            border-radius: 16px;
             border: 1px solid rgba(248, 189, 40, 0.3);
-            background: #111;
+            background: #0a0a0a;
+            isolation: isolate;
         }
 
         .location-image > img {
@@ -161,46 +164,91 @@
             height: 100%;
             min-height: 480px;
             object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
         }
+
+        /* BLACK LOGO CARD — POSITIONED LOWER */
 
         .store-caption {
             position: absolute;
-            bottom: 20px;
-            left: 15px;
-            right: 15px;
+            bottom: 8px;
+            left: 10px;
+            right: 10px;
+            z-index: 2;
+
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 16px;
+            gap: 12px;
+
+            padding: 12px 14px;
+            box-sizing: border-box;
+
+            background: rgba(5, 5, 5, 0.94);
+            border: 1px solid rgba(248, 189, 40, 0.45);
             border-radius: 12px;
-            background: rgba(5, 5, 5, 0.92);
-            border: 1px solid rgba(248, 189, 40, 0.4);
+
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            animation: captionFadeIn 0.8s ease both;
         }
 
         .store-caption-logo {
-            width: 55px;
-            height: 55px;
-            flex-shrink: 0;
+            display: block;
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
             object-fit: contain;
+        }
+
+        .store-caption > div {
+            min-width: 0;
         }
 
         .store-caption strong {
             display: block;
             color: #ffffff;
-            font-size: 20px;
-            letter-spacing: 1px;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
         }
 
         .store-caption small {
             display: block;
-            margin-top: 5px;
+            margin-top: 4px;
             color: #f8bd28;
             font-size: 10px;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
         }
 
-        /* FOOTER CREDIT */
+        @keyframes captionFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FINAL INVITATION */
+
+        .final-cta {
+            text-align: center;
+        }
+
+        .final-cta h2 span {
+            color: #f8bd28;
+        }
+
+        /* FOOTER */
 
         .creator-credit {
             width: 100%;
@@ -222,7 +270,7 @@
             color: #ffffff;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* TABLET RESPONSIVE */
 
         @media (max-width: 800px) {
             .location-layout {
@@ -238,53 +286,31 @@
                 font-size: 34px;
             }
 
+            .location-image {
+                min-height: 320px;
+            }
+
             .location-image > img {
-                min-height: 350px;
-                max-height: 500px;
-            }
-
-            .detail-row {
-                gap: 12px;
-            }
-
-            .detail-content strong {
-                font-size: 15px;
-            }
-
-            .contact-numbers a {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .location-card {
-                padding: 20px 14px;
-            }
-
-            .detail-icon {
-                width: 42px;
-                height: 42px;
-                min-width: 42px;
-                font-size: 18px;
-            }
-
-            .location-card h2 {
-                font-size: 30px;
+                min-height: 320px;
+                max-height: 480px;
             }
 
             .store-caption {
-                left: 10px;
-                right: 10px;
-                padding: 12px;
+                bottom: 8px;
+                left: 8px;
+                right: 8px;
+                gap: 10px;
+                padding: 10px 12px;
             }
 
             .store-caption-logo {
-                width: 43px;
-                height: 43px;
+                width: 42px;
+                height: 42px;
+                flex-basis: 42px;
             }
 
             .store-caption strong {
-                font-size: 17px;
+                font-size: 16px;
             }
 
             .store-caption small {
@@ -292,7 +318,77 @@
             }
         }
 
+        /* SMALL MOBILE RESPONSIVE */
+
+        @media (max-width: 380px) {
+            .location-card {
+                padding: 20px 14px;
+            }
+
+            .location-card h2 {
+                font-size: 30px;
+            }
+
+            .detail-row {
+                gap: 10px;
+                padding: 17px 0;
+            }
+
+            .detail-icon {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: 18px;
+            }
+
+            .detail-content > strong {
+                font-size: 14px;
+            }
+
+            .contact-numbers a {
+                font-size: 15px;
+            }
+
+            .location-image {
+                min-height: 280px;
+            }
+
+            .location-image > img {
+                min-height: 280px;
+            }
+
+            .store-caption {
+                bottom: 6px;
+                left: 6px;
+                right: 6px;
+                gap: 8px;
+                padding: 9px;
+                border-radius: 10px;
+            }
+
+            .store-caption-logo {
+                width: 36px;
+                height: 36px;
+                flex-basis: 36px;
+            }
+
+            .store-caption strong {
+                font-size: 14px;
+            }
+
+            .store-caption small {
+                font-size: 8px;
+                letter-spacing: 0.4px;
+            }
+        }
+
+        /* ACCESSIBILITY */
+
         @media (prefers-reduced-motion: reduce) {
+            .store-caption {
+                animation: none;
+            }
+
             .contact-numbers a,
             .map-button {
                 transition: none;
@@ -338,7 +434,6 @@
 
             <span>
                 MOBI<span>HOUSE</span>
-
                 <small>SABSE SASTA SABSE ACHHAA</small>
             </span>
 
@@ -352,35 +447,26 @@
         </button>
 
         <nav class="nav">
-
             <a href="index.html">Home</a>
-
             <a href="offers.html">Offers</a>
-
             <a href="guests.html">Special Guest</a>
-
             <a class="active" href="location.html">Location</a>
-
         </nav>
 
     </header>
 
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
 
     <main>
 
-        <!-- PAGE INTRODUCTION -->
+        <!-- PAGE INTRO -->
 
         <section class="page-hero reveal">
 
-            <p class="eyebrow">
-                SAVE THE DATE • COME CELEBRATE
-            </p>
+            <p class="eyebrow">SAVE THE DATE • COME CELEBRATE</p>
 
-            <h1>
-                FIND <span>MOBI HOUSE.</span>
-            </h1>
+            <h1>FIND <span>MOBI HOUSE.</span></h1>
 
             <p>
                 Your new destination for smartphones, gadgets and electronics.
@@ -390,21 +476,17 @@
         </section>
 
 
-        <!-- LOCATION DETAILS -->
+        <!-- LOCATION AND STORE PHOTO -->
 
         <section class="section location-layout">
 
-            <!-- EVENT DETAILS CARD -->
+            <!-- EVENT DETAILS -->
 
             <div class="location-card reveal">
 
-                <p class="eyebrow">
-                    GRAND OPENING DETAILS
-                </p>
+                <p class="eyebrow">GRAND OPENING DETAILS</p>
 
-                <h2>
-                    See you <span>there!</span>
-                </h2>
+                <h2>See you <span>there!</span></h2>
 
 
                 <!-- DATE -->
@@ -414,11 +496,8 @@
                     <div class="detail-icon">📅</div>
 
                     <div class="detail-content">
-
                         <small>DATE</small>
-
                         <strong>Sunday, 1 November 2026</strong>
-
                     </div>
 
                 </div>
@@ -431,11 +510,8 @@
                     <div class="detail-icon">🕥</div>
 
                     <div class="detail-content">
-
                         <small>TIME</small>
-
                         <strong>10:30 AM</strong>
-
                     </div>
 
                 </div>
@@ -448,19 +524,15 @@
                     <div class="detail-icon">📍</div>
 
                     <div class="detail-content">
-
                         <small>LOCATION</small>
-
                         <strong>Medinipur Station</strong>
-
                         <p>Beside Reshma Lodge</p>
-
                     </div>
 
                 </div>
 
 
-                <!-- CONTACT NUMBERS -->
+                <!-- FOUR CONTACT NUMBERS -->
 
                 <div class="detail-row">
 
@@ -472,26 +544,26 @@
 
                         <div class="contact-numbers">
 
-                            <a href="tel:+916297408808">
-                                <span>📱</span> 6297408808
-                            </a>
-
-                            <a href="tel:+918695393982">
-                                <span>📱</span> 8695393982
-                            </a>
-
                             <a href="tel:+917908084700">
-                                <span>📱</span> 7908084700
+                                📱 7908084700
+                            </a>
+
+                            <a href="tel:+916297408808">
+                                📱 6297408808
                             </a>
 
                             <a href="tel:+917872058086">
-                                <span>📱</span> 7872058086
+                                📱 7872058086
+                            </a>
+
+                            <a href="tel:+918695393982">
+                                📱 8695393982
                             </a>
 
                         </div>
 
                         <p>
-                            Call us for store, products and grand opening information.
+                            Call us for store, product and grand opening information.
                         </p>
 
                     </div>
@@ -513,27 +585,23 @@
             </div>
 
 
-            <!-- STORE PHOTO -->
+            <!-- STORE PHOTO WITH LOWER BLACK LOGO CARD -->
 
             <div class="location-image reveal">
 
                 <img src="assets/mobi-house-store.jpeg"
-                     alt="MOBI HOUSE Storefront">
-
-                <!-- OFFICIAL LOGO AND STORE NAME -->
+                     alt="MOBI HOUSE storefront"
+                     loading="lazy">
 
                 <div class="store-caption">
 
                     <img class="store-caption-logo"
                          src="assets/mobihouse-logo.png"
-                         alt="Official MOBI HOUSE Logo">
+                         alt="MOBI HOUSE official logo">
 
                     <div>
-
                         <strong>MOBI HOUSE</strong>
-
                         <small>SABSE SASTA SABSE ACHHAA</small>
-
                     </div>
 
                 </div>
@@ -551,9 +619,7 @@
                 YOUR PRESENCE WILL MAKE OUR DAY SPECIAL
             </p>
 
-            <h2>
-                Let's make it <span>memorable.</span>
-            </h2>
+            <h2>Let's make it <span>memorable.</span></h2>
 
             <p>
                 Bring your friends and family.
@@ -581,30 +647,21 @@
 
             <span>
                 MOBI<span>HOUSE</span>
-
                 <small>SABSE SASTA SABSE ACHHAA</small>
             </span>
 
         </a>
 
-
         <p>
             © 2026 MOBI HOUSE · A New Beginning, A New Experience.
         </p>
 
-
         <div class="footer-links">
-
             <a href="index.html">Home</a>
-
             <a href="offers.html">Offers</a>
-
             <a href="guests.html">Special Guest</a>
-
             <a href="location.html">Location</a>
-
         </div>
-
 
         <!-- WEBSITE CREATOR DETAILS -->
 
@@ -623,10 +680,11 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- EXISTING SITE JAVASCRIPT -->
 
     <script src="script.js"></script>
 
 </body>
 
 </html>
+```
