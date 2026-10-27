@@ -124,8 +124,4 @@ Contact: 9832749304
 A New Beginning. A New Experience!
 
 Made with ❤️ for the MOBI HOUSE Grand Opening.
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> babb703e9e7aea6bcf99ba992c3a0646fe5dfd48
