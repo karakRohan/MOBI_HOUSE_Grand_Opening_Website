@@ -5,80 +5,628 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#090909">
+
+    <meta name="description"
+        content="Visit MOBI HOUSE, your destination for smartphones, gadgets and electronics. Join our Grand Opening on 1 November 2026.">
+
     <title>Location & Contact | MOBI HOUSE</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* LOCATION PAGE */
+
+        .location-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .location-card {
+            padding: 30px;
+            border: 1px solid rgba(248, 189, 40, 0.35);
+            border-radius: 18px;
+            background: linear-gradient(145deg, #171612, #0c0c0c);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .location-card h2 {
+            font-size: clamp(30px, 4vw, 46px);
+            margin: 18px 0 28px;
+        }
+
+        .location-card h2 span {
+            color: #f8bd28;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        }
+
+        .detail-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(248, 189, 40, 0.09);
+            border: 1px solid rgba(248, 189, 40, 0.3);
+            font-size: 21px;
+        }
+
+        .detail-content {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .detail-content small {
+            display: block;
+            margin-bottom: 9px;
+            color: #f8bd28;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .detail-content strong {
+            display: block;
+            color: #f7f5ef;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .detail-content p {
+            color: #bdb7aa;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-top: 5px;
+        }
+
+        /* CONTACT NUMBERS */
+
+        .contact-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-numbers a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f8bd28;
+            font-size: 17px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-numbers a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .contact-numbers a span {
+            font-size: 19px;
+        }
+
+        /* GOOGLE MAPS BUTTON */
+
+        .map-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 25px;
+            padding: 17px 20px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #ffdf79, #f5ae12);
+            color: #171107;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 800;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(248, 189, 40, 0.2);
+        }
+
+        /* STORE IMAGE AND LOGO */
+
+        .location-image {
+            position: relative;
+            min-height: 100%;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid rgba(248, 189, 40, 0.3);
+            background: #111;
+        }
+
+        .location-image > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            object-fit: cover;
+        }
+
+        .store-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(5, 5, 5, 0.92);
+            border: 1px solid rgba(248, 189, 40, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .store-caption-logo {
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .store-caption strong {
+            display: block;
+            color: #ffffff;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .store-caption small {
+            display: block;
+            margin-top: 5px;
+            color: #f8bd28;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER CREDIT */
+
+        .creator-credit {
+            width: 100%;
+            text-align: center;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+        }
+
+        .creator-credit strong {
+            color: #f8bd28;
+        }
+
+        .creator-credit a {
+            color: #f8bd28;
+            text-decoration: none;
+        }
+
+        .creator-credit a:hover {
+            color: #ffffff;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 800px) {
+            .location-layout {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .location-card {
+                padding: 24px 18px;
+            }
+
+            .location-card h2 {
+                font-size: 34px;
+            }
+
+            .location-image > img {
+                min-height: 350px;
+                max-height: 500px;
+            }
+
+            .detail-row {
+                gap: 12px;
+            }
+
+            .detail-content strong {
+                font-size: 15px;
+            }
+
+            .contact-numbers a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .location-card {
+                padding: 20px 14px;
+            }
+
+            .detail-icon {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+                font-size: 18px;
+            }
+
+            .location-card h2 {
+                font-size: 30px;
+            }
+
+            .store-caption {
+                left: 10px;
+                right: 10px;
+                padding: 12px;
+            }
+
+            .store-caption-logo {
+                width: 43px;
+                height: 43px;
+            }
+
+            .store-caption strong {
+                font-size: 17px;
+            }
+
+            .store-caption small {
+                font-size: 9px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .contact-numbers a,
+            .map-button {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="audio-control" role="region" aria-label="Grand opening background music"><button class="audio-toggle"
-            type="button" aria-label="Play background music">▶</button><span class="audio-label">GRAND OPENING
-            MUSIC</span><span class="audio-status">Tap ▶ to start music</span><audio class="site-audio" preload="auto"
-            loop>
+
+    <!-- BACKGROUND MUSIC -->
+
+    <div class="audio-control"
+         role="region"
+         aria-label="Grand opening background music">
+
+        <button class="audio-toggle"
+                type="button"
+                aria-label="Play background music">
+            ▶
+        </button>
+
+        <span class="audio-label">GRAND OPENING MUSIC</span>
+
+        <span class="audio-status">Tap ▶ to start music</span>
+
+        <audio class="site-audio" preload="auto" loop>
             <source src="assets/grand-opening-audio.mpeg" type="audio/mpeg">
-        </audio></div>
-    <header class="site-header"><a class="brand" href="index.html"><img class="brand-logo"
-                src="assets/mobihouse-logo.png" alt="MOBI HOUSE logo"><span>MOBI<span>HOUSE</span><small>SABSE SASTA
-                    SABSE ACHHAA</small></span></a><button class="menu-toggle" aria-label="Toggle navigation"
-            aria-expanded="false">☰</button>
-        <nav class="nav"><a href="index.html">Home</a><a href="offers.html">Offers</a><a href="guests.html">Special
-                Guest</a><a class="active" href="location.html">Location</a></nav>
+        </audio>
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <a class="brand" href="index.html">
+
+            <img class="brand-logo"
+                 src="assets/mobihouse-logo.png"
+                 alt="MOBI HOUSE Logo">
+
+            <span>
+                MOBI<span>HOUSE</span>
+
+                <small>SABSE SASTA SABSE ACHHAA</small>
+            </span>
+
+        </a>
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav">
+
+            <a href="index.html">Home</a>
+
+            <a href="offers.html">Offers</a>
+
+            <a href="guests.html">Special Guest</a>
+
+            <a class="active" href="location.html">Location</a>
+
+        </nav>
+
     </header>
+
+
+    <!-- MAIN CONTENT -->
+
     <main>
+
+        <!-- PAGE INTRODUCTION -->
+
         <section class="page-hero reveal">
-            <p class="eyebrow">SAVE THE DATE • COME CELEBRATE</p>
-            <h1>FIND <span>MOBI HOUSE.</span></h1>
-            <p>Your new destination for smartphones, gadgets and electronics. We look forward to welcoming you!</p>
+
+            <p class="eyebrow">
+                SAVE THE DATE • COME CELEBRATE
+            </p>
+
+            <h1>
+                FIND <span>MOBI HOUSE.</span>
+            </h1>
+
+            <p>
+                Your new destination for smartphones, gadgets and electronics.
+                We look forward to welcoming you!
+            </p>
+
         </section>
+
+
+        <!-- LOCATION DETAILS -->
+
         <section class="section location-layout">
+
+            <!-- EVENT DETAILS CARD -->
+
             <div class="location-card reveal">
-                <p class="eyebrow">GRAND OPENING DETAILS</p>
-                <h2>See you <span>there!</span></h2>
+
+                <p class="eyebrow">
+                    GRAND OPENING DETAILS
+                </p>
+
+                <h2>
+                    See you <span>there!</span>
+                </h2>
+
+
+                <!-- DATE -->
+
                 <div class="detail-row">
+
                     <div class="detail-icon">📅</div>
-                    <div><small>DATE</small><strong>Sunday, 1 November 2026</strong></div>
+
+                    <div class="detail-content">
+
+                        <small>DATE</small>
+
+                        <strong>Sunday, 1 November 2026</strong>
+
+                    </div>
+
                 </div>
+
+
+                <!-- TIME -->
+
                 <div class="detail-row">
+
                     <div class="detail-icon">🕥</div>
-                    <div><small>TIME</small><strong>10:30 AM</strong></div>
+
+                    <div class="detail-content">
+
+                        <small>TIME</small>
+
+                        <strong>10:30 AM</strong>
+
+                    </div>
+
                 </div>
+
+
+                <!-- ADDRESS -->
+
                 <div class="detail-row">
+
                     <div class="detail-icon">📍</div>
-                    <div><small>LOCATION</small><strong>Medinipur Station</strong>
+
+                    <div class="detail-content">
+
+                        <small>LOCATION</small>
+
+                        <strong>Medinipur Station</strong>
+
                         <p>Beside Reshma Lodge</p>
+
                     </div>
+
                 </div>
+
+
+                <!-- CONTACT NUMBERS -->
+
                 <div class="detail-row">
+
                     <div class="detail-icon">📞</div>
-                    <div><small>PHONE</small><strong><a href="tel:+917908084700">7908084700</a></strong>
-                        <p>Call us for store and opening-day information.</p>
+
+                    <div class="detail-content">
+
+                        <small>CONTACT US</small>
+
+                        <div class="contact-numbers">
+
+                            <a href="tel:+916297408808">
+                                <span>📱</span> 6297408808
+                            </a>
+
+                            <a href="tel:+918695393982">
+                                <span>📱</span> 8695393982
+                            </a>
+
+                            <a href="tel:+917908084700">
+                                <span>📱</span> 7908084700
+                            </a>
+
+                            <a href="tel:+917872058086">
+                                <span>📱</span> 7872058086
+                            </a>
+
+                        </div>
+
+                        <p>
+                            Call us for store, products and grand opening information.
+                        </p>
+
                     </div>
-                </div><a class="btn btn-gold" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/search/?api=1&query=Medinipur+Station+Beside+Reshma+Lodge">Open in
-                    Google Maps ↗</a>
-            </div>
-            <div class="location-image reveal"><img src="assets/mobi-house-store.jpeg" alt="MOBI HOUSE storefront">
-                <div class="store-caption"><img class="store-caption-logo" src="assets/mobihouse-logo.png"
-                        alt="MOBI HOUSE official logo">
-                    <div><strong>MOBI HOUSE</strong><small>SABSE SASTA SABSE ACHHAA</small></div>
+
                 </div>
+
+
+                <!-- GOOGLE MAPS -->
+
+                <a class="btn btn-gold map-button"
+                   href="https://maps.app.goo.gl/HJrrKNmBVcrbp7Nw9?g_st=aw"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    📍 Open in Google Maps ↗
+
+                </a>
+
             </div>
+
+
+            <!-- STORE PHOTO -->
+
+            <div class="location-image reveal">
+
+                <img src="assets/mobi-house-store.jpeg"
+                     alt="MOBI HOUSE Storefront">
+
+                <!-- OFFICIAL LOGO AND STORE NAME -->
+
+                <div class="store-caption">
+
+                    <img class="store-caption-logo"
+                         src="assets/mobihouse-logo.png"
+                         alt="Official MOBI HOUSE Logo">
+
+                    <div>
+
+                        <strong>MOBI HOUSE</strong>
+
+                        <small>SABSE SASTA SABSE ACHHAA</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
+
+
+        <!-- FINAL INVITATION -->
+
         <section class="section final-cta reveal">
-            <p class="eyebrow">YOUR PRESENCE WILL MAKE OUR DAY SPECIAL</p>
-            <h2>Let's make it <span>memorable.</span></h2>
-            <p>Bring your friends and family. Come celebrate a new beginning with MOBI HOUSE!</p><a href="index.html"
-                class="btn btn-outline">Back to Home</a>
+
+            <p class="eyebrow">
+                YOUR PRESENCE WILL MAKE OUR DAY SPECIAL
+            </p>
+
+            <h2>
+                Let's make it <span>memorable.</span>
+            </h2>
+
+            <p>
+                Bring your friends and family.
+                Come celebrate a new beginning with MOBI HOUSE!
+            </p>
+
+            <a href="index.html" class="btn btn-outline">
+                Back to Home
+            </a>
+
         </section>
+
     </main>
-    <footer><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/mobihouse-logo.png"
-                alt="MOBI HOUSE logo"><span>MOBI<span>HOUSE</span><small>SABSE SASTA SABSE ACHHAA</small></span></a>
-        <p>© 2026 MOBI HOUSE · A new beginning, a new experience.</p>
-        <div class="footer-links"><a href="index.html">Home</a><a href="offers.html">Offers</a><a
-                href="guests.html">Special Guest</a></div>
-        <p class="creator-credit">Website Created By <strong>Rohan Karak (Code_Rider42)</strong><br><a
-                href="tel:+917908084700">Call: 9832749304</a></p>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <a class="brand footer-brand" href="index.html">
+
+            <img class="brand-logo"
+                 src="assets/mobihouse-logo.png"
+                 alt="MOBI HOUSE Logo">
+
+            <span>
+                MOBI<span>HOUSE</span>
+
+                <small>SABSE SASTA SABSE ACHHAA</small>
+            </span>
+
+        </a>
+
+
+        <p>
+            © 2026 MOBI HOUSE · A New Beginning, A New Experience.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="offers.html">Offers</a>
+
+            <a href="guests.html">Special Guest</a>
+
+            <a href="location.html">Location</a>
+
+        </div>
+
+
+        <!-- WEBSITE CREATOR DETAILS -->
+
+        <p class="creator-credit">
+
+            Website Created By
+            <strong>Rohan Karak (Code_Rider42)</strong>
+
+            <br>
+
+            Developer Contact:
+            <a href="tel:+919832749304">9832749304</a>
+
+        </p>
+
     </footer>
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
